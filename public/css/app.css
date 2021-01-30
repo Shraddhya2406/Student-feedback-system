@@ -1,0 +1,162 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+h1{
+	margin: 0;
+	padding: 0;
+}
+.text {
+	color: white;
+	background-color:orange;
+	height: 45px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	direction:none;
+	text-align: center;
+}
+.sign-up-form{
+	width: 580px;
+	box-shadow: 0 0 30px 0 rgba(0,0,0,0.3);
+	background-color:#FACC2E;
+	margin-top: 10px;
+	margin-right: 50px;
+	/* margin: 8% auto; */
+	text-align: center;
+	float: right;
+	/* margin-right: 486px; */
+	/* margin-top: -20px; */
+}
+.sign-up-form h1{
+	color:#1c8adb;
+	margin-bottom: 30px;
+}
+.input-box{
+	border-radius: 20px;
+	padding: 9px;
+	margin:10px 0px;
+	width: 50%;
+	border:1px solid #999;
+	outline: none;
+	margin-top: -110px;
+	float:left;
+	margin-left: 140px;
+}
+button{
+	color:white;
+	width: 100%;
+	padding: 10px;
+	border-radius: 20px;
+	font-size: 15px;
+	margin: 10px 0;
+	border:2px;
+	outline: none; 
+	cursor: pointer;
+	width: 50%;
+	margin-top:0px; 
+}
+.signup-btn{
+	background-color:black;	
+	margin-top: -37px;
+	float:left;
+	margin-left: 152px;
+}
+a{
+	text-decoration: none;
+	position: relative;
+	padding: 15px 30px;
+	color:blue;
+	text-transform: uppercase;
+	overflow: hidden;
+	transition: .2s;
+
+}
+.or{
+	background-color: #fff;
+	width: 30px;
+	margin: -19px auto 10px;
+}
+img{
+	width: 70px;
+	margin-top: -50px;
+	border:50px;                         
+}
+a:hover{
+	color:white; 
+	background: blue;
+	box-shadow: 0 0 8px #2196f3,0 0 30px #2196f3,0px 0 20px #2196f3;
+	transition-delay: .3s;
+}
+ul{
+	list-style-type: none;
+	margin-top: 25px;
+	text-align: right;
+}
+ul li{
+	display: inline-block;
+	list-style: none;
+	margin: 0 10px;
+	cursor: pointer;
+}
+ul li a{
+text-decoration: none;
+color:blue;
+padding:5px 15px;
+transition: 0.4s ease;
+}
+select{
+
+	border-radius: 20px;
+	padding: 9px;
+	margin:10px 0px;
+	width: 90%;
+	border:1px solid #999;
+	outline: none; 
+	text-align: center;
+	width: 50%;
+	margin-top: -250px;
+	float:left;
+	margin-left: 150px;
+}
+.pic{
+margin: 0px;
+padding: 10px 380px 10px 0px;
+margin-top: 60px;
+margin-left: 250px;
+}
+.pid{
+	margin-top: 15px;
+	height:290px;
+	width: 223px;
+	float: right;
+	margin-right: 355px;
+}
+.input1-box{
+	border-radius: 20px;
+	padding: 9px;
+	margin:10px 0px;
+	width: 50%;
+	border:1px solid #999;
+	outline: none;
+	margin-top: -180px;
+	float:left;
+	margin-left: 140px;
+}
+p{
+	margin-top: 280px;
+}
+.main-body{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content:space-between;
+	align-items: center;
+}
+
+.img_3{
+	margin: 2%;
+	padding-left: 4%;
+	height: 300px;
+	width: 520px;
+}
