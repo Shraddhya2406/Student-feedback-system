@@ -11,7 +11,7 @@ use Illuminate\Notifications\Notifiable;
 class Student extends Model
 {
     use HasFactory, Notifiable;
-
+    protected $table = 'student';
     /**
      * The attributes that are mass assignable.
      *
@@ -19,8 +19,8 @@ class Student extends Model
      */
     protected $fillable = [
         'student_id',
-        'student_name',
-        'student_email',
+        'name',
+        'email',
         'password',
         'gender',
         'dob',

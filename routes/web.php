@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/register','StudentController@student_registration');
+Route::get('/registration', function () {
+    return view('registration');
+});
+Route::post('/registration','App\Http\Controllers\StudentController@student_registration');
 
 Auth::routes();
 

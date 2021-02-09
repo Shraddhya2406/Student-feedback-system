@@ -10,8 +10,8 @@ class StudentController extends Controller
     {
         $student = new Student;
         $student->student_id = '100';
-        $student->student_name = $request->input('name');
-        $student->student_email = $request->input('email');
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
         $student->password = $request->input('password');
         $student->gender = $request->input('gender');
         $student->dob = $request->input('dob');
@@ -25,7 +25,7 @@ class StudentController extends Controller
     /*if($student->save()){
         
         return redirect('log-in')->with('status',"Insert successfully");
-
+    
     }else{
           
             return redirect('log-in')->with('failed',"Try again later");
