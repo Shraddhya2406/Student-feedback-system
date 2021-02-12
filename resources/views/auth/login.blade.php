@@ -3,13 +3,14 @@
 @section('content')
 <div class="text">
 		<h1>Student Feedback System</h1>
-	</div>
+</div>
 	<div class="main-body">
 		<div class="img_3">
 			<img style="height: 100%; width: 100%; 	padding-top: 50px;" src="{{ asset('images/img_3.jpg') }}">
 		</div>
 		<div class="sign-up-form">
-			<form>
+			<form method="POST" action="/signin">
+          	 @csrf
 				<div class="pid"></div>
 				<select>
 					<option>Student</option>

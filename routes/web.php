@@ -22,6 +22,11 @@ Route::get('/registration', function () {
 });
 Route::post('/registration','App\Http\Controllers\StudentController@student_registration');
 
+Route::get('/signin', function () {
+    return view('signin');
+});
+Route::post('/signin','App\Http\Controllers\StudentController@signin');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

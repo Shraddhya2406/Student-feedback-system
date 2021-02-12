@@ -32,4 +32,30 @@ class StudentController extends Controller
     }*/
     }
 
+    public function signin(Request $request)
+    {
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $student = \DB::table('student')->where('email', $email)->first();
+        //$student = Student::find($email); 
+
+        /*error_log($student->password);
+
+       error_log($request->input('email'));
+
+       error_log($request->input('password'));*/
+
+       if ($student->password = $password)
+       {
+            return redirect('home')->with('user',$student);
+       }
+       else
+       {
+           return redirect('signin')->with('msg','username or password are incurrect');
+       }
+
+       //return redirect('/');
+    }
+
 }
