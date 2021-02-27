@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
-    public function student_registration(Request $request)
+public function student_registration(Request $request)
     {
         $student = new Student;
         $student->student_id = '100';
@@ -48,7 +48,7 @@ class StudentController extends Controller
 
        if ($student->password = $password)
        {
-            return redirect('home')->with('user',$student);
+            return redirect('dashboard')->with('user',$student->name);
        }
        else
        {
