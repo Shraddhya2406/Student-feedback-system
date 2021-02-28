@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

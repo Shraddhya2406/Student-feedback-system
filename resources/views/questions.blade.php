@@ -40,8 +40,8 @@
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 			  <ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="/questions">Provide Feedback</a></li>
+				<li ><a href="/dashboard">Home</a></li>
+				<li class="active"><a href="#">Provide Feedback</a></li>
 			  </ul>
 			  <ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
@@ -54,32 +54,23 @@
         <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                
-			@if (session('user'))
-                 <div class="card-body">
-                        {{session('user')}}
-                        {{ __('You are logged in!') }}
-                 </div>
-            @endif
+                <h1>Questions</h1>  
+				@foreach($question as $question)
+					{{$question->ques_description}}
+				@endforeach
+
             </div>
         </div>
     </div>
 		  <div class="row">
-		    <div class="col-sm-4"></div>
-			<div class="col-sm-4">
-			   <div class="panel panel-primary">
-				<div class="panel-heading">PROVIDE FEEDBACK</div>
-				<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" onclick="myFunction()" class="img-responsive" style="width:100%" alt="Image"></div>
-				<div class="panel-footer">Select a faculty and give your feedback</div>
-			</div>
-			<div class="col-sm-4"></div>
-		  </div>
-		</div>
-	<script> function myFunction ()
-		{
-			alert('Hello');
-		}
-	 </script>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">PROVIDE FEEDBACK</div>
+                    </div>
+                </div>
+            </div>
+  
     </body>
 </html>
 		
