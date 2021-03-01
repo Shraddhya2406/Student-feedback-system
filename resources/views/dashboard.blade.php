@@ -57,7 +57,7 @@
                 
 			@if (session('user'))
                  <div class="card-body">
-                        {{session('user')}}
+                        {{ $user->name }}
                         {{ __('You are logged in!') }}
                  </div>
             @endif

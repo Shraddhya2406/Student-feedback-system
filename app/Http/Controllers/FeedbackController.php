@@ -20,16 +20,14 @@ class FeedbackController extends Controller
         for($qid = 1 ; $qid<=5 ; $qid++)
         {
             $range = 'range' . strval($qid);
-            
-            error_log($request->input($range));
-
             $comment = 'comment' . strval($qid);
             
-            error_log($request->input($comment));  
+            error_log($request->input('faculty'));
+            error_log($user->student_id);
 
             $feedback = new Feedback;
-            $feedback->student_id = '100';
-            $feedback->faculty_id = '200';
+            $feedback->student_id = '100'; //$user->student_id
+            $feedback->faculty_id = $request->input('faculty');
             $feedback->question_id = $qid;
             $feedback->feedback_marks = $request->input($range);
             $feedback->comment = $request->input($comment);
