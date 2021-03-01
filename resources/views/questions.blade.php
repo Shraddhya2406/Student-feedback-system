@@ -54,6 +54,8 @@
     </nav>
 
     <div class="container">
+	<form method="POST" action="/dashboard">
+                        @csrf
         <div class="row justify-content-center">
             <div class="col-md-12">
 			<h1>Please give appropriate ratings and reviews</h1>
@@ -74,6 +76,8 @@
 				    </div>
                 </div>
 			@endforeach
+			<button type="submit" class="btn btn-outline-secondary" >{{__('Submit')}}</button>
+	</form>
 			<!--loop end-->
             </div>
         </div>
