@@ -31,6 +31,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 });
 
+Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback');
+
 Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions');
 
 Auth::routes();
