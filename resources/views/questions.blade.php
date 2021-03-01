@@ -54,33 +54,42 @@
     </nav>
 
     <div class="container">
-	<form method="POST" action="/dashboard">
-                        @csrf
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-			<h1>Please give appropriate ratings and reviews</h1>
-			</br>
-			<!--loop start-->
-			@foreach($question as $question)
-                <div class="card">
-					<div class="card-header"></div>
-					<div class="card-body">
-						<blockquote class="blockquote mb-0">
-						  <p>{{$question->ques_description}}</p>
-						  <input type="range" class="form-range" min="0" max="10" name="range{{$question->id}}" value="0">
-						  </br>
-						  <div class="form-floating mb-3">
-							  <input type="text" class="form-control" name="comment{{$question->id}}" placeholder="Add your reviews">
-						  </div>
-						</blockquote>
-				    </div>
-                </div>
-			@endforeach
-			<button type="submit" class="btn btn-outline-secondary" >{{__('Submit')}}</button>
-	</form>
-			<!--loop end-->
-            </div>
-        </div>
+		<form method="POST" action="/dashboard">
+			@csrf
+			<div class="col-md-12"><h1>Please give appropriate ratings and reviews</h1></div>
+				<div class="select_faculty">
+					<p class="h4">Select Faculty : </p>
+					<select class="form-select form-select-lg mb-3" name="faculty">
+						<option selected>-- select --</option>
+						<option value="1">Guru</option>
+						<option value="2">Hemu</option>
+						<option value="3">Goru</option>
+					</select>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-12">
+				<!--loop start-->
+				@foreach($question as $question)
+					<div class="card">
+						<div class="card-header"></div>
+						<div class="card-body">
+							<blockquote class="blockquote mb-0">
+								<p>{{$question->ques_description}}</p>
+								<input type="range" class="form-range" min="0" max="10" name="range{{$question->id}}" value="0">
+								</br>
+								<div class="form-floating mb-3">
+									<input type="text" class="form-control" name="comment{{$question->id}}" placeholder="Add your reviews">
+								</div>
+							</blockquote>
+						</div>
+					</div>
+				@endforeach
+				<button type="submit" class="btn btn-outline-secondary" >{{__('Submit')}}</button>
+				<!--loop end-->
+				</div>
+			</div>
+		</form>
     </div>
 
 </body>
