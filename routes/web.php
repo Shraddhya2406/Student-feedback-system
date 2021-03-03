@@ -27,9 +27,7 @@ Route::get('/signin', function () {
 });
 Route::post('/signin','App\Http\Controllers\StudentController@signin');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard','App\Http\Controllers\DashboardController@gotoDashboard');
 
 Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback');
 

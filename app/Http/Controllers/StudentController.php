@@ -49,7 +49,12 @@ public function student_registration(Request $request)
        if ($student->password = $password)
        {
             // return redirect('dashboard')->with('user',$student->name);
-            return view('dashboard', ['user' => $student]);
+           
+            session(['name' => $student->name]);
+            session(['email' => $student->email]);
+            session(['id' => $student->student_id]);
+            
+            return view('dashboard');
        }
        else
        {

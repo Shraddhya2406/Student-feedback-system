@@ -55,9 +55,10 @@
         <div class="col-md-8">
             <div class="card">
                 
-			@if (session('user'))
+			@if (session('name'))
+			
                  <div class="card-body">
-                        {{ $user->name }}
+                        {{ session('name') }}
                         {{ __('You are logged in!') }}
                  </div>
             @endif

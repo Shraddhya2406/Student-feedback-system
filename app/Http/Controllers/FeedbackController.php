@@ -10,7 +10,7 @@ class FeedbackController extends Controller
     public function FetchQuestions(Request $request)
     {
         $question = \DB::table('question')->get();
-
+        //error_log($request->input('name'));
         return view('Questions', ['question' => $question]);
     }
 
@@ -23,10 +23,10 @@ class FeedbackController extends Controller
             $comment = 'comment' . strval($qid);
             
             error_log($request->input('faculty'));
-            error_log($user->student_id);
+           // error_log($user->student_id);
 
             $feedback = new Feedback;
-            $feedback->student_id = '100'; //$user->student_id
+            $feedback->student_id = session('id');
             $feedback->faculty_id = $request->input('faculty');
             $feedback->question_id = $qid;
             $feedback->feedback_marks = $request->input($range);

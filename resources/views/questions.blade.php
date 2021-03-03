@@ -61,9 +61,9 @@
 					<p class="h4">Select Faculty : </p>
 					<select class="form-select form-select-lg mb-3" name="faculty">
 						<option selected>-- select --</option>
-						<option value="1">Guru</option>
-						<option value="2">Hemu</option>
-						<option value="3">Goru</option>
+						<option value="1">Gurudev Adhikary</option>
+						<option value="2">Hemant kr Mahato</option>
+						<option value="3">Abhijit Bannerjee</option>
 					</select>
 				</div>
 			</div>
