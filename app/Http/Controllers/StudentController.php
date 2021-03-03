@@ -47,14 +47,12 @@ public function student_registration(Request $request)
        error_log($request->input('password'));*/
 
        if ($student->password = $password)
-       {
-            // return redirect('dashboard')->with('user',$student->name);
-           
+       {           
             session(['name' => $student->name]);
             session(['email' => $student->email]);
             session(['id' => $student->student_id]);
             
-            return view('dashboard');
+            return redirect('dashboard')->with('status','Welcome to Student Feedback System');
        }
        else
        {

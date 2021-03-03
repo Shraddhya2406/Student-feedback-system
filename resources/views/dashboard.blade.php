@@ -55,11 +55,14 @@
         <div class="col-md-8">
             <div class="card">
                 
-			@if (session('name'))
+			@if (session('status'))
 			
                  <div class="card-body">
-                        {{ session('name') }}
-                        {{ __('You are logged in!') }}
+                        <h2>{{ session('name') }}
+                        {{ __('You are logged in!') }}</h2>
+                 </div>
+				 <div class="card-body">
+                        <h3>{{ session('status') }}</h3>
                  </div>
             @endif
             </div>
