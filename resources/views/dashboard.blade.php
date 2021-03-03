@@ -73,17 +73,16 @@
 			<div class="col-sm-4">
 			   <div class="panel panel-primary">
 				<div class="panel-heading">PROVIDE FEEDBACK</div>
-				<div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" onclick="myFunction()" class="img-responsive" style="width:100%" alt="Image"></div>
+				<div class="panel-body">
+					<a href="/questions">
+						<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+					</a>
+				</div>
 				<div class="panel-footer">Select a faculty and give your feedback</div>
 			</div>
 			<div class="col-sm-4"></div>
 		  </div>
 		</div>
-	<script> function myFunction ()
-		{
-			alert('Hello');
-		}
-	 </script>
     </body>
 </html>
 		
