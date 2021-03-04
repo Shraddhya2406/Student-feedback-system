@@ -20,12 +20,12 @@ Route::get('/', function () {
 Route::get('/registration', function () {
     return view('registration');
 });
-Route::post('/registration','App\Http\Controllers\StudentController@student_registration');
+Route::post('/registration','App\Http\Controllers\AuthController@registration');
 
 Route::get('/signin', function () {
     return view('signin');
 });
-Route::post('/signin','App\Http\Controllers\StudentController@signin');
+Route::post('/signin','App\Http\Controllers\AuthController@signin');
 
 Route::get('/dashboard','App\Http\Controllers\DashboardController@gotoDashboard');
 

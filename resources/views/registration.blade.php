@@ -12,6 +12,23 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg mb-3 @error('user_type') is-invalid @enderror" name="user_type" required>
+                                    <option value='S'>Student</option>
+                                    <option value='F'>Faculty</option>
+                                </select>
+                                
+                                @error('user_type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -61,6 +78,50 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg mb-3 @error('gender') is-invalid @enderror" name="gender" required>
+                                    <option value='M'>Male</option>
+                                    <option value='F'>Female</option>
+                                </select>
+                                
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" required>
+
+                                @error('dob')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="depertment" class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="depertment" type="text" class="form-control @error('depertment') is-invalid @enderror" name="depertment" required>
+
+                                @error('depertment')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone No') }}</label>
@@ -76,23 +137,19 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
-                            <label for="gender" class="col-md-4 col-form-label text-md-right">{{ __('Gender') }}</label>
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                             <div class="col-md-6">
-                                    <select>
-                                        <option value='M'>Male</option>
-                                        <option value='F'>Female</option>
-                                    </select>
-                                 <input id="gender" type="" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" required>
 
-                                @error('email')
+                                @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div> -->
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

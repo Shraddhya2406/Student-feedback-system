@@ -12,6 +12,24 @@
                         @csrf
 
                         <div class="form-group row">
+                            <label for="user_type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+
+                            <div class="col-md-6">
+                                <select class="form-select form-select-lg mb-3 @error('user_type') is-invalid @enderror" name="user_type" required>
+                                    <option value='S'>Student</option>
+                                    <option value='F'>Faculty</option>
+                                    <option value='A'>Admin</option>
+                                </select>
+                                
+                                @error('user_type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
