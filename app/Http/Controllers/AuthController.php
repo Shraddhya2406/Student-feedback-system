@@ -9,8 +9,12 @@ class AuthController extends Controller
 public function registration(Request $request)
     {   
         if ($request->input('user_type') == 'S'){
+
+            // Dynamically calculating student_id
+            $student_id = DB::table('student')->max('student_id');
+            
             $student = new Student;
-            $student->student_id = '100';
+            $student->student_id = intval($student_id) + 1;
             $student->name = $request->input('name');
             $student->email = $request->input('email');
             $student->password = $request->input('password');
@@ -38,9 +42,13 @@ public function registration(Request $request)
     {
         $email = $request->input('email');
         $password = $request->input('password');
+        $status = 'N';
 
         if ($request->input('user_type') == 'S'){
-            $student = \DB::table('student')->where('email', $email)->first();
+            $student = \DB::table('student')->where('email', $email)
+                                       ->AND->where('password', $password)
+                                       ->AND->where('status', $status)
+                                       ->first();
             //$student = Student::find($email); 
 
             /*error_log($student->password);
@@ -49,7 +57,7 @@ public function registration(Request $request)
 
             error_log($request->input('password'));*/
 
-            if ($student->password = $password)
+            if ($student)
             {           
                 session(['name' => $student->name]);
                 session(['email' => $student->email]);
