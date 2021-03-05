@@ -26,6 +26,15 @@
             background-color: #f2f2f2;
             padding: 25px;
         }
+
+        .compact{
+            margin-left: 7%;
+            margin-right: 7%;
+        }
+
+        .select_faculty{
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -47,7 +56,7 @@
                     <li class="active"><a href="#">Provide Feedback</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+                    <li><a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a></li>
                 </ul>
             </div>
         </div>
@@ -67,7 +76,8 @@
 					</select>
 				</div>
 			</div>
-			<div class="row justify-content-center">
+            </br>
+			<div class="row justify-content-center compact">
 				<div class="col-md-12">
 				<!--loop start-->
 				@foreach($question as $question)
@@ -85,7 +95,11 @@
 						</div>
 					</div>
 				@endforeach
-				<button type="submit" class="btn btn-outline-secondary" >{{__('Submit')}}</button>
+                <div class="form-group row mb-0">
+                    <div class="col-md-8 offset-md-4">
+				        <button type="submit" class="btn btn-outline-secondary" >{{__('Submit')}}</button>
+                    </div>
+                </div>
 				<!--loop end-->
 				</div>
 			</div>

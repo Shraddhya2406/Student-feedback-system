@@ -44,7 +44,7 @@
 				<li><a href="/questions">Provide Feedback</a></li>
 			  </ul>
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+				<li><a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a></li>
 			  </ul>
 			</div>
 		  </div>

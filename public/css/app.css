@@ -10116,17 +10116,17 @@ transition: 0.4s ease;
 }
 select{
 
-	border-radius: 20px;
+	border-radius: 5px;
 	padding: 9px;
-	margin:10px 0px;
-	width: 90%;
+	/* margin:10px 0px; */
+	width: 100%;
 	border:1px solid #999;
 	outline: none; 
 	text-align: center;
 	width: 50%;
-	margin-top: -250px;
+	/* margin-top: -250px; */
 	float:left;
-	margin-left: 150px;
+	/* margin-left: 150px; */
 }
 .pic{
 margin: 0px;
