@@ -46,9 +46,9 @@ public function registration(Request $request)
 
         if ($request->input('user_type') == 'S'){
             $student = \DB::table('student')->where('email', $email)
-                                       ->AND->where('password', $password)
-                                       ->AND->where('status', $status)
-                                       ->first();
+                                            ->where('password', $password)
+                                            ->where('status', $status)
+                                            ->first();
             //$student = Student::find($email); 
 
             /*error_log($student->password);
@@ -62,12 +62,13 @@ public function registration(Request $request)
                 session(['name' => $student->name]);
                 session(['email' => $student->email]);
                 session(['id' => $student->student_id]);
+                session(['user_type' => 'S']);
                 
                 return redirect('dashboard')->with('status','Welcome to Student Feedback System');
             }
             else
             {
-                return redirect('signin')->with('msg','username or password are incorrect');
+                return redirect('signin')->with('msg','username or password is incorrect');
             }
 
         } else {

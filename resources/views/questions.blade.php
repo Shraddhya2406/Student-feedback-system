@@ -35,6 +35,35 @@
         .select_faculty{
             margin-left: 20px;
         }
+
+        #dropdown:hover .all_items
+        {
+            display: block;
+        }
+
+        .all_items
+        {
+            
+            display: none;
+            background-color: blanchedalmond;
+            position: absolute;
+            top: 56px;
+            left: 22px;
+            min-height: 50px;
+            width: 120px;
+            padding: 7px;
+            border-radius: 5px;
+        }
+
+        .all_items_list
+        {
+            list-style: none;
+            margin: 1px;
+            padding: 2px;
+        }
+        .dropdown_item{
+            color: black;
+        }
     </style>
 </head>
 
@@ -56,7 +85,15 @@
                     <li class="active"><a href="#">Provide Feedback</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a></li>
+                    <li id="dropdown">
+                        <a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a>
+                        <div class="all_items rounded_shape">
+                            <ul class="all_items_list">
+                                <li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
+                                <li> <a href="#" class="dropdown_item">Logout</a> </li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
