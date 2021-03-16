@@ -29,10 +29,9 @@ Route::post('/signin','App\Http\Controllers\AuthController@signin');
 
 Route::get('/dashboard','App\Http\Controllers\DashboardController@gotoDashboard');
 
-Route::get('/account', function () {
-    return view('account');
-});
-Route::post('/account','App\Http\Controllers\DashboardController@SaveAccount');
+Route::get('/account','App\Http\Controllers\AccountController@FetchAccount');
+
+Route::post('/account','App\Http\Controllers\AccountController@SaveAccount');
 
 Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback');
 

@@ -115,7 +115,7 @@
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" disabled>
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" disabled>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" disabled>
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email" disabled>
 
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
@@ -144,8 +144,9 @@
 
                                 <div class="col-md-6">
                                     <select class="form-control @error('gender') is-invalid @enderror" name="gender" required>
-                                        <option value='M'>Male</option>
-                                        <option value='F'>Female</option>
+                                        <option>-- select --</option>
+                                        <option value='M' @if ($user->gender == "M") {{ 'selected' }} @endif>Male</option>
+                                        <option value='F' @if ($user->gender == "F") {{ 'selected' }} @endif>Female</option>
                                     </select>
                                     
                                     @error('gender')
@@ -160,7 +161,7 @@
                                 <label for="dob" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" required>
+                                    <input id="dob" type="date" class="form-control @error('dob') is-invalid @enderror" name="dob" required value="{{ $user->dob }}>
 
                                     @error('dob')
                                         <span class="invalid-feedback" role="alert">
@@ -174,7 +175,7 @@
                                 <label for="depertment" class="col-md-4 col-form-label text-md-right">{{ __('Department') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="depertment" type="text" class="form-control @error('depertment') is-invalid @enderror" name="depertment" required>
+                                    <input id="depertment" type="text" class="form-control @error('depertment') is-invalid @enderror" name="depertment" required value="{{ $user->depertment }}">
 
                                     @error('depertment')
                                         <span class="invalid-feedback" role="alert">
@@ -188,7 +189,7 @@
                                 <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone No') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                                    <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}" required autocomplete="phone">
 
                                     @error('phone')
                                         <span class="invalid-feedback" role="alert">
@@ -202,7 +203,7 @@
                                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" required>
+                                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" required value="{{ $user->address }}">
 
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">

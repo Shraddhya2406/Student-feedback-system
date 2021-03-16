@@ -102,6 +102,12 @@
                         <h3>{{ session('status') }}</h3>
                  </div>
             @endif
+			@if (session('status_update'))
+
+		<div class="card-body">
+                        <h3>{{ session('status_update') }}</h3>
+                 </div>
+            @endif
             </div>
         </div>
     </div>
