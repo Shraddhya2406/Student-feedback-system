@@ -43,8 +43,8 @@ public function registration(Request $request)
                 
                 $faculty = new Faculty;
                 $faculty->faculty_id = intval($faculty_id) + 1;
-                $faculty->faculty_name = $request->input('name');
-                $faculty->faculty_email = $request->input('email');
+                $faculty->name = $request->input('name');
+                $faculty->email = $request->input('email');
                 $faculty->password = $request->input('password');
                 $faculty->gender = $request->input('gender');
                 $faculty->dob = $request->input('dob');
@@ -96,15 +96,15 @@ public function registration(Request $request)
 
         } 
         elseif($request->input('user_type') == 'F'){
-            $faculty = \DB::table('faculty')->where('faculty_email', $email)
+            $faculty = \DB::table('faculty')->where('email', $email)
                                             ->where('password', $password)
                                             ->where('status', $status)
                                             ->first();
 
             if ($faculty)
             {           
-                session(['name' => $faculty->faculty_name]);
-                session(['email' => $faculty->faculty_email]);
+                session(['name' => $faculty->name]);
+                session(['email' => $faculty->email]);
                 session(['id' => $faculty->faculty_id]);
                 session(['user_type' => 'F']);
                 

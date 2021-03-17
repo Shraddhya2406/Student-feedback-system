@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Student;
+use App\Models\Faculty;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller
@@ -20,6 +21,15 @@ public function SaveAccount(Request $request)
             return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
           
         } 
+        elseif ($user_type == 'F'){
+            $dob = $request->input('dob');
+            $gender = $request->input('gender');
+            $depertment = $request->input('depertment');
+            $phone = $request->input('phone');
+            $address = $request->input('address');
+            \DB::update('update faculty set dob = ? , gender = ? , depertment = ? , phone = ? , address = ? where email = ?',[$dob,$gender,$depertment,$phone,$address,$email]);
+            return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
+        }
         else {
             return redirect('dashboard')->with('failed',"Something wrong! Try again later");
         }
@@ -46,7 +56,24 @@ public function SaveAccount(Request $request)
                 return redirect('signin')->with('msg','username or password is incorrect');
             }
 
-        } else {
+        }
+        elseif ($user_type == 'F'){
+            $faculty = \DB::table('faculty')->where('email', $email)
+                                            ->first();
+        
+
+            if ($faculty)
+            {           
+            
+                return view('account',['user' => $faculty]);
+            }
+            else
+            {
+                return redirect('signin')->with('msg','username or password is incorrect');
+            }
+
+        }
+        else {
             return redirect('signin')->with('msg','username or password are incorrect');
         }
     }
