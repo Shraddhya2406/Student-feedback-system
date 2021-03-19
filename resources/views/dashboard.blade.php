@@ -70,7 +70,12 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 			  <ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home</a></li>
-				<li><a href="/questions">Provide Feedback</a></li>
+				@if (session('user_type') == 'S')
+					<li><a href="/questions">Provide Feedback</a></li>
+				@endif
+				@if (session('user_type') == 'F')
+					<li><a href="/feedbacks">Feedback Results</a></li>
+				@endif
 			  </ul>
 			  <ul class="nav navbar-nav navbar-right">
 				<li id="dropdown">
@@ -111,7 +116,8 @@
             </div>
         </div>
     </div>
-		  <div class="row">
+		<div class="row">
+		@if (session('user_type') == 'S')
 		    <div class="col-sm-4"></div>
 			<div class="col-sm-4">
 			   <div class="panel panel-primary">
@@ -125,6 +131,22 @@
 			</div>
 			<div class="col-sm-4"></div>
 		  </div>
+		@endif
+		@if (session('user_type') == 'F')
+		    <div class="col-sm-4"></div>
+			<div class="col-sm-4">
+			   <div class="panel panel-primary">
+				<div class="panel-heading">FEEDBACK RESULTS</div>
+				<div class="panel-body">
+					<a href="/feedbacks">
+						<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+					</a>
+				</div>
+				<div class="panel-footer">Take a look at your feedbacks</div>
+			</div>
+			<div class="col-sm-4"></div>
+		  </div>
+		@endif
 		</div>
     </body>
 </html>

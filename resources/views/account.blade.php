@@ -82,7 +82,12 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="/dashboard">Home</a></li>
-                    <li><a href="/questions">Provide Feedback</a></li>
+                    @if (session('user_type') == 'S')
+                        <li><a href="/questions">Provide Feedback</a></li>
+                    @endif
+                    @if (session('user_type') == 'F')
+                        <li><a href="/feedbacks">Feedback Results</a></li>
+                    @endif
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="dropdown">
