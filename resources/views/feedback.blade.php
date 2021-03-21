@@ -93,7 +93,7 @@
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
                                 <li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
-                                <li> <a href="#" class="dropdown_item">Logout</a> </li>
+                                <li> <a href="/signout" class="dropdown_item">Logout</a> </li>
                             </ul>
                         </div>
                     </li>

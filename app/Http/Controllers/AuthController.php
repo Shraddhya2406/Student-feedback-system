@@ -121,4 +121,10 @@ public function registration(Request $request)
         }
     }
 
+    public function signout(Request $request)
+    {
+        $request->session()->flush();
+        return redirect('/');
+    }
+
 }

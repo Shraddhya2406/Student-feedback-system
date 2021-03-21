@@ -90,7 +90,7 @@
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
                                 <li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
-                                <li> <a href="#" class="dropdown_item">Logout</a> </li>
+                                <li> <a href="/signout" class="dropdown_item">Logout</a> </li>
                             </ul>
                         </div>
                     </li>
@@ -105,8 +105,8 @@
 			<div class="col-md-12"><h1>Please give appropriate ratings and reviews</h1></div>
 				<div class="select_faculty">
 					<p class="h4">Select Faculty : </p>
-					<select class="form-select form-select-lg mb-3" name="faculty">
-						<option selected>-- select --</option>
+					<select class="form-select form-select-lg mb-3" name="faculty" required>
+						<option value="">-- select --</option>
                         @foreach($faculty as $faculty)
                              <option value="{{$faculty->faculty_id}}">{{$faculty->name}}</option>
                         @endforeach
@@ -126,7 +126,7 @@
 								<input type="range" class="form-range" min="0" max="10" name="range{{$question->id}}" value="0">
 								</br>
 								<div class="form-floating mb-3">
-									<input type="text" class="form-control" name="comment{{$question->id}}" placeholder="Add your reviews">
+									<input type="text" class="form-control" name="comment{{$question->id}}" placeholder="Add your reviews" required>
 								</div>
 							</blockquote>
 						</div>

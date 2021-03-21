@@ -25,6 +25,9 @@ Route::post('/registration','App\Http\Controllers\AuthController@registration');
 Route::get('/signin', function () {
     return view('signin');
 });
+
+Route::get('/signout', 'App\Http\Controllers\AuthController@signout');
+
 Route::post('/signin','App\Http\Controllers\AuthController@signin');
 
 Route::get('/dashboard','App\Http\Controllers\DashboardController@gotoDashboard');
