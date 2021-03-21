@@ -37,9 +37,7 @@ Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback'
 
 Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions');
 
-Route::get('/feedbacks', function () {
-    return view('feedback');
-});
+Route::get('/feedbacks', 'App\Http\Controllers\FeedbackController@FetchFeedback');
 
 Auth::routes();
 

@@ -104,6 +104,7 @@
 
     <div class="container">
 		<div class="col-md-12"><h1>Feedbacks and Reviews</h1></div>
+        @if(session('user_type')=='A')
 			<div class="select_faculty">
 				<p class="h4">Select Faculty : </p>
 				<select class="form-select form-select-lg mb-3" name="faculty">
@@ -112,13 +113,14 @@
 					<option value="2">Hemant kr Mahato</option>
 					<option value="3">Abhijit Bannerjee</option>
 				</select>
+        @endif
 			</div>
 			</br>
 			<table class="table table-striped table-hover">
 			  <thead class="thead-light thead">
 				<tr>
 				  <th scope="col">Faculty ID</th>
-				  <th scope="col">Question ID</th>
+				  <th scope="col">Question</th>
 				  <th scope="col">Feedback Marks</th>
 				  <th scope="col">Comment</th>
 				</tr>
@@ -128,10 +130,10 @@
 				  
 				  @foreach($feedback as $feedback)
                     <tr>
-                        <td>$feedback->faculty_id</td>
-                        <td>$feedback->question_id</td>
-                        <td>$feedback->feedback_marks</td>
-                        <td>$feedback->comment</td>
+                        <td>{{$feedback->faculty_id}}</td>
+                        <td>{{$feedback->ques_description}}</td>
+                        <td>{{$feedback->feedback_marks}}</td>
+                        <td>{{$feedback->comment}}</td>
                     </tr>
 				  @endforeach
 				  

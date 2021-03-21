@@ -19,8 +19,8 @@ class Faculty extends Model
      */
     protected $fillable = [
         'faculty_id',
-        'faculty_name',
-        'faculty_email',
+        'name',
+        'email',
         'password',
         'gender',
         'dob',

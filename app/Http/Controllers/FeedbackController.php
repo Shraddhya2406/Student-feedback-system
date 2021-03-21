@@ -10,8 +10,10 @@ class FeedbackController extends Controller
     public function FetchQuestions(Request $request)
     {
         $question = \DB::table('question')->get();
+        $faculty = \DB::table('faculty')->get();
+        
         //error_log($request->input('name'));
-        return view('Questions', ['question' => $question]);
+        return view('Questions', ['question' => $question,'faculty' => $faculty]);
     }
 
     public function GiveFeedback(Request $request)
@@ -37,5 +39,17 @@ class FeedbackController extends Controller
         }
         return redirect('dashboard');
     }
+
+    public function FetchFeedback(Request $request)
+    {
+        $faculty_id = session('id');
+        $feedback = \DB::table('feedback')
+        ->join('question','question.id','=','feedback.question_id')
+        ->get()
+        ->where('faculty_id',$faculty_id);
+        //error_log($request->input('name'));
+        return view('Feedback', ['feedback' => $feedback]);
+    }
+
 
 }
