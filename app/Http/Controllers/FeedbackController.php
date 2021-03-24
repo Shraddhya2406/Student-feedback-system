@@ -47,8 +47,15 @@ class FeedbackController extends Controller
         ->join('question','question.id','=','feedback.question_id')
         ->get()
         ->where('faculty_id',$faculty_id);
-        //error_log($request->input('name'));
-        return view('Feedback', ['feedback' => $feedback]);
+    
+        $avg_feedback = \DB::table('feedback')
+        //->join('question','question.id','=','feedback.question_id')
+        //->get()
+        ->where('faculty_id',$faculty_id)
+        ->avg('feedback.feedback_marks');
+        error_log('$avg_feedback');
+        error_log($avg_feedback);
+        return view('Feedback', ['feedback' => $feedback,'avg_feedback' => $avg_feedback]);
     }
 
 

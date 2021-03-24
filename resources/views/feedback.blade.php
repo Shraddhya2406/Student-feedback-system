@@ -115,6 +115,13 @@
 				</select>
         @endif
 			</div>
+            <div class="form-group row">
+                                <label for="avg" class="col-md-4 col-form-label text-md-right">{{ __('Average Marks') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="avg" type="text" class="form-control" name="avg" value="{{ $avg_feedback}}" required autocomplete="average" disabled>
+                                </div>
+            </div>
 			</br>
 			<table class="table table-striped table-hover">
 			  <thead class="thead-light thead">
