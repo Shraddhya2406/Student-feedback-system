@@ -42,6 +42,13 @@ Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions
 
 Route::get('/feedbacks', 'App\Http\Controllers\FeedbackController@FetchFeedback');
 
+
+Route::get('/admin_account','App\Http\Controllers\AccountController@FetchAccount');
+
+Route::post('/admin_account','App\Http\Controllers\AccountController@SaveAccount');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

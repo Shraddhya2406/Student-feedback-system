@@ -30,6 +30,12 @@ public function SaveAccount(Request $request)
             \DB::update('update faculty set dob = ? , gender = ? , depertment = ? , phone = ? , address = ? where email = ?',[$dob,$gender,$depertment,$phone,$address,$email]);
             return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
         }
+        elseif ($user_type == 'A'){
+            $phone = $request->input('phone');
+            $address = $request->input('address');
+            \DB::update('update admin set  phone = ? , address = ? where admin_email = ?',[$phone,$address,$email]);
+            return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
+        }
         else {
             return redirect('dashboard')->with('failed',"Something wrong! Try again later");
         }
@@ -58,7 +64,7 @@ public function SaveAccount(Request $request)
 
         }
         elseif ($user_type == 'F'){
-            $faculty = \DB::table('faculty')->where('email', $email)
+            $faculty = \DB::table('faculty')->where('admin_email', $email)
                                             ->first();
         
 
@@ -66,6 +72,22 @@ public function SaveAccount(Request $request)
             {           
             
                 return view('account',['user' => $faculty]);
+            }
+            else
+            {
+                return redirect('signin')->with('msg','username or password is incorrect');
+            }
+
+        }
+        elseif ($user_type == 'A'){
+            $admin = \DB::table('admin')->where('admin_email', $email)
+                                            ->first();
+        
+
+            if ($admin)
+            {           
+            
+                return view('admin_account',['user' => $admin]);
             }
             else
             {

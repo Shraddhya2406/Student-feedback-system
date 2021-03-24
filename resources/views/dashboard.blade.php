@@ -72,8 +72,7 @@
 				<li class="active"><a href="#">Home</a></li>
 				@if (session('user_type') == 'S')
 					<li><a href="/questions">Provide Feedback</a></li>
-				@endif
-				@if (session('user_type') == 'F')
+				@else
 					<li><a href="/feedbacks">Feedback Results</a></li>
 				@endif
 			  </ul>
@@ -82,7 +81,11 @@
 					<a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a>
 					<div class="all_items rounded_shape">
 						<ul class="all_items_list">
+						@if (session('user_type') == 'A')
+							<li> <a href="/admin_account" class="dropdown_item">Profile Details</a> </li>
+						@else
 							<li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
+						@endif
 							<li> <a href="/signout" class="dropdown_item">Logout</a> </li>
 						</ul>
 					</div>
@@ -131,8 +134,7 @@
 			</div>
 			<div class="col-sm-4"></div>
 		  </div>
-		@endif
-		@if (session('user_type') == 'F')
+		@else
 		    <div class="col-sm-4"></div>
 			<div class="col-sm-4">
 			   <div class="panel panel-primary">
