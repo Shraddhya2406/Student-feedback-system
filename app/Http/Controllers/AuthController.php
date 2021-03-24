@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\Faculty;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -115,6 +116,25 @@ public function registration(Request $request)
                 return redirect('signin')->with('msg','username or password is incorrect');
             }
 
+        }
+        elseif($request->input('user_type') == 'A'){
+            $admin = \DB::table('admin')->where('admin_email', $email)
+                                            ->where('password', $password)
+                                            ->first();
+
+            if ($admin)
+            {           
+                session(['name' => $admin->admin_name]);
+                session(['email' => $admin->admin_email]);
+                session(['id' => $admin->id]);
+                session(['user_type' => 'A']);
+                
+                return redirect('dashboard')->with('status','Welcome to Student Feedback System');
+            }
+            else
+            {
+                return redirect('signin')->with('msg','username or password is incorrect');
+            }
         }
         else {
             return redirect('signin')->with('msg','username or password are incorrect');
