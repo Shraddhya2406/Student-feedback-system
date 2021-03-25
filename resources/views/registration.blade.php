@@ -5,8 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+            @if (session('user_type') == 'A')
+                <div class="card-header">{{ __('Add Faculty or Student') }}</div>
+            @else
                 <div class="card-header">{{ __('Registration') }}</div>
-
+            @endif
                 <div class="card-body">
                     <form method="POST" action="/registration">
                         @csrf
@@ -153,6 +156,11 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                            @if (session('user_type') == 'A')
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Add') }}
+                                </button>
+                            @else
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
@@ -160,6 +168,7 @@
                                 <a class="btn btn-link" href="/signin">
                                         {{ __('Already Registered?') }}
                                 </a>
+                            @endif
                             </div>
                         </div>
                     </form>

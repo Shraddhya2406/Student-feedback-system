@@ -29,8 +29,11 @@ public function registration(Request $request)
 
         
             if($student->save()){
-                
-                return redirect('signin')->with('status',"Registered successfully");
+                if (session('user_type') == 'A'){
+                    return redirect('dashboard')->with('status_update',"Registered successfully");
+                } else {
+                    return redirect('signin')->with('status',"Registered successfully");
+                }
             
             }else{
                 
@@ -38,7 +41,6 @@ public function registration(Request $request)
             }
         }
         elseif($request->input('user_type') == 'F'){
-
         
                 $faculty_id = \DB::table('faculty')->max('faculty_id');
                 
@@ -56,8 +58,11 @@ public function registration(Request $request)
     
             
                 if($faculty->save()){
-                    
-                    return redirect('signin')->with('status',"Registered successfully");
+                    if (session('user_type') == 'A'){
+                        return redirect('dashboard')->with('status_update',"Registered successfully");
+                    } else {
+                        return redirect('signin')->with('status',"Registered successfully");
+                    }
                 
                 }else{
                     

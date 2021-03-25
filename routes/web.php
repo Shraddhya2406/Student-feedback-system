@@ -22,6 +22,11 @@ Route::get('/registration', function () {
 });
 Route::post('/registration','App\Http\Controllers\AuthController@registration');
 
+Route::get('/add_user', function () {
+    return view('registration');
+});
+Route::post('/add_user','App\Http\Controllers\AuthController@registration');
+
 Route::get('/signin', function () {
     return view('signin');
 });
@@ -41,7 +46,6 @@ Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback'
 Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions');
 
 Route::get('/feedbacks', 'App\Http\Controllers\FeedbackController@FetchFeedback');
-
 
 Route::get('/admin_account','App\Http\Controllers\AccountController@FetchAccount');
 

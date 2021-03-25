@@ -94,7 +94,8 @@
                             <ul class="all_items_list">
                         @if (session('user_type') == 'A')
 							<li> <a href="/admin_account" class="dropdown_item">Profile Details</a> </li>
-						@else
+                            <li> <a href="/add_user" class="dropdown_item">Add Users</a> </li>
+                        @else
 							<li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
 						@endif
                                 <li> <a href="/signout" class="dropdown_item">Logout</a> </li>
