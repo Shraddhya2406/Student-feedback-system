@@ -41,9 +41,13 @@ Route::get('/account','App\Http\Controllers\AccountController@FetchAccount');
 
 Route::post('/account','App\Http\Controllers\AccountController@SaveAccount');
 
-Route::get('/edit_user','App\Http\Controllers\AccountController@FetchAccount');
+Route::get('/edit_user', function () {
+    return view('account');
+});
 
-Route::post('/edit_user','App\Http\Controllers\AccountController@SaveAccount');
+Route::post('/edit_user','App\Http\Controllers\AccountController@FetchUserByAdmin');
+
+Route::put('/edit_user','App\Http\Controllers\AccountController@EditUserByAdmin');
 
 Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback');
 

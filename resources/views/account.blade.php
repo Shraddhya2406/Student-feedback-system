@@ -104,7 +104,25 @@
             </div>
         </div>
     </nav>
-    
+    <form action="/edit_user" method="post">
+        @csrf
+            <div class="row">
+                <select class="form-control @error('user_type') is-invalid @enderror" name="user_type" required>
+                    <option value='S'>Student</option>
+                    <option value='F'>Faculty</option>
+                </select>
+                <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search Email') }}</label>
+
+                <div class="col-md-6">
+                    <input id="search" type="text" class="form-control @error('search') is-invalid @enderror" name="search" required autocomplete="search">
+
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    {{ __('Search') }}
+                </button>
+            </div>
+    </form>
+   @if(isset($user)) 
     <div class="container">
         <div class="row justify-content-center">
         <div class="col-md-12"></div>
@@ -233,6 +251,7 @@
             </div>
         </div>
     </div>
+@endif
 
 </body>
 

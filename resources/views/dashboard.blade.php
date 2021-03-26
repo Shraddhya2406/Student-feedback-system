@@ -84,6 +84,7 @@
 						@if (session('user_type') == 'A')
 							<li> <a href="/admin_account" class="dropdown_item">Profile Details</a> </li>
 							<li> <a href="/add_user" class="dropdown_item">Add Users</a> </li>
+							<li> <a href="/edit_user" class="dropdown_item">Edit Users</a> </li>
 						@else
 							<li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
 						@endif
