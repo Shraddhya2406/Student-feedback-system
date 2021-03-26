@@ -41,6 +41,10 @@ Route::get('/account','App\Http\Controllers\AccountController@FetchAccount');
 
 Route::post('/account','App\Http\Controllers\AccountController@SaveAccount');
 
+Route::get('/edit_user','App\Http\Controllers\AccountController@FetchAccount');
+
+Route::post('/edit_user','App\Http\Controllers\AccountController@SaveAccount');
+
 Route::post('/dashboard', 'App\Http\Controllers\FeedbackController@GiveFeedback');
 
 Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions');
