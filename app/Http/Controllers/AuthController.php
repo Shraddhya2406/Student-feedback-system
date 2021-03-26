@@ -30,7 +30,7 @@ public function registration(Request $request)
         
             if($student->save()){
                 if (session('user_type') == 'A'){
-                    return redirect('dashboard')->with('status_update',"Registered successfully");
+                    return redirect('dashboard')->with('status_update',"Student added successfully");
                 } else {
                     return redirect('signin')->with('status',"Registered successfully");
                 }
@@ -59,7 +59,7 @@ public function registration(Request $request)
             
                 if($faculty->save()){
                     if (session('user_type') == 'A'){
-                        return redirect('dashboard')->with('status_update',"Registered successfully");
+                        return redirect('dashboard')->with('status_update',"Faculty added successfully");
                     } else {
                         return redirect('signin')->with('status',"Registered successfully");
                     }

@@ -100,4 +100,75 @@ public function SaveAccount(Request $request)
         }
     }
 
+    public function EditUserByAdmin(Request $request)
+    {   
+        $email =  $request->input('search');
+        $user_type = $request->input('user_type');
+        if ($user_type == 'S'){
+            $dob = $request->input('dob');
+            $gender = $request->input('gender');
+            $depertment = $request->input('depertment');
+            $phone = $request->input('phone');
+            $address = $request->input('address');
+            \DB::update('update student set dob = ? , gender = ? , depertment = ? , phone = ? , address = ? where email = ?',[$dob,$gender,$depertment,$phone,$address,$email]);
+            return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
+          
+        } 
+        elseif ($user_type == 'F'){
+            $dob = $request->input('dob');
+            $gender = $request->input('gender');
+            $depertment = $request->input('depertment');
+            $phone = $request->input('phone');
+            $address = $request->input('address');
+            \DB::update('update faculty set dob = ? , gender = ? , depertment = ? , phone = ? , address = ? where email = ?',[$dob,$gender,$depertment,$phone,$address,$email]);
+            return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
+        }
+        else {
+            return redirect('dashboard')->with('failed',"Something wrong! Try again later");
+        }
+    }
+
+    public function FetchUserByAdmin(Request $request)
+    {
+        $email = $request->input('search');
+        $user_type = $request->input('user_type');
+       
+
+        if ($user_type == 'S'){
+            $student = \DB::table('student')->where('email', $email)
+                                            ->first();
+        
+
+            if ($student)
+            {           
+            
+                return view('account',['user' => $student]);
+            }
+            else
+            {
+                return redirect('signin')->with('msg','username or password is incorrect');
+            }
+
+        }
+        elseif ($user_type == 'F'){
+            $faculty = \DB::table('faculty')->where('admin_email', $email)
+                                            ->first();
+        
+
+            if ($faculty)
+            {           
+            
+                return view('account',['user' => $faculty]);
+            }
+            else
+            {
+                return redirect('account');
+            }
+
+        }
+        else {
+            return redirect('signin')->with('msg','username or password are incorrect');
+        }
+    }
+
 }
