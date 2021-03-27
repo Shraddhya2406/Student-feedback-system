@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 class FeedbackController extends Controller
 {
     public function FetchQuestions(Request $request)
-    {
+    {   
+        $status = 'N';
         $question = \DB::table('question')->get();
-        $faculty = \DB::table('faculty')->get();
+        $faculty = \DB::table('faculty')->get()
+                                        ->where('status', $status);
         
-        //error_log($request->input('name'));
         return view('Questions', ['question' => $question,'faculty' => $faculty]);
     }
 
@@ -23,9 +24,6 @@ class FeedbackController extends Controller
         {
             $range = 'range' . strval($qid);
             $comment = 'comment' . strval($qid);
-            
-            error_log($request->input('faculty'));
-           // error_log($user->student_id);
 
             $feedback = new Feedback;
             $feedback->student_id = session('id');
@@ -41,22 +39,29 @@ class FeedbackController extends Controller
     }
 
     public function FetchFeedback(Request $request)
-    {
-        $faculty_id = session('id');
+    {   
+        if (session('user_type') == 'A')
+        {
+            $faculty_id = $request->input('faculty');
+        } else {
+            $faculty_id = session('id');
+        }
         $feedback = \DB::table('feedback')
-        ->join('question','question.id','=','feedback.question_id')
-        ->get()
-        ->where('faculty_id',$faculty_id);
+                                ->join('question','question.id','=','feedback.question_id')
+                                ->get()
+                                ->where('faculty_id',$faculty_id);
     
-        $avg_feedback = \DB::table('feedback')
-        //->join('question','question.id','=','feedback.question_id')
-        //->get()
-        ->where('faculty_id',$faculty_id)
-        ->avg('feedback.feedback_marks');
-        error_log('$avg_feedback');
-        error_log($avg_feedback);
+        $avg_feedback = \DB::table('feedback')->where('faculty_id',$faculty_id)
+                                              ->avg('feedback.feedback_marks');
         return view('Feedback', ['feedback' => $feedback,'avg_feedback' => $avg_feedback]);
     }
 
+    public function FetchFaculty(Request $request)
+    {
+        $status = 'N';
+        $faculty = \DB::table('faculty')->get()
+                                        ->where('status', $status);
+        return view('Feedback', ['faculty' => $faculty]);
+    }
 
 }

@@ -84,8 +84,10 @@
                     <li><a href="/dashboard">Home</a></li>
                     @if (session('user_type') == 'S')
                         <li><a href="/questions">Provide Feedback</a></li>
-                    @else
+                    @elseif (session('user_type') == 'F')
                         <li><a href="/feedbacks">Feedback Results</a></li>
+                    @else
+                        <li><a href="/get_feedbacks">Feedback Results</a></li>
                     @endif
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -111,8 +113,8 @@
     @if (session('user_type') == 'A')
     <form action="/edit_user" method="post">
         @csrf
-            <div class="row">
-                <select class="form-control @error('user_type') is-invalid @enderror" name="user_type" required>
+            <div class="form-group row">
+                <select class="form-control" name="user_type" required>
                     <option value='S'>Student</option>
                     <option value='F'>Faculty</option>
                 </select>
@@ -128,7 +130,7 @@
             </div>
     </form>
     @endif
-   @if(isset($user)) 
+    @if(isset($user)) 
     <div class="container">
         <div class="row justify-content-center">
         <div class="col-md-12"></div>
@@ -275,7 +277,7 @@
             </div>
         </div>
     </div>
-@endif
+    @endif
 
 </body>
 

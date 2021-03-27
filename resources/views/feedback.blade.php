@@ -85,7 +85,11 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="/dashboard">Home</a></li>
-                    <li><a href="/feedbacks" class="active">Feedback Results</a></li>
+                    @if (session('user_type') == 'F')
+                        <li><a href="/feedbacks">Feedback Results</a></li>
+                    @else
+                        <li><a href="/get_feedbacks">Feedback Results</a></li>
+                    @endif
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="dropdown">
@@ -111,22 +115,31 @@
     <div class="container">
 		<div class="col-md-12"><h1>Feedbacks and Reviews</h1></div>
         @if(session('user_type')=='A')
-			<div class="select_faculty">
-				<p class="h4">Select Faculty : </p>
-				<select class="form-select form-select-lg mb-3" name="faculty">
-					<option selected>-- select --</option>
-					<option value="1">Gurudev Adhikary</option>
-					<option value="2">Hemant kr Mahato</option>
-					<option value="3">Abhijit Bannerjee</option>
-				</select>
-        @endif
-			</div>
+        <form action="/feedbacks" method="GET">
+            @csrf
             <div class="form-group row">
-                                <label for="avg" class="col-md-4 col-form-label text-md-right">{{ __('Average Marks') }}</label>
+                <div class="select_faculty">
+                    <p class="h4">Select Faculty : </p>
+                    <select class="form-select form-select-lg mb-3" name="faculty" required>
+                        <option value="">-- select --</option>
+                        @foreach($faculty as $faculty)
+                            <option value="{{$faculty->faculty_id}}">{{$faculty->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                        {{ __('Get Feedback') }}
+                </button>
+            </div>
+        </form>
+        @endif
+        @if(isset($feedback))
+            <div class="form-group row">
+                <label for="avg" class="col-md-4 col-form-label text-md-right">{{ __('Average Marks') }}</label>
 
-                                <div class="col-md-6">
-                                    <input id="avg" type="text" class="form-control" name="avg" value="{{ $avg_feedback}}" required autocomplete="average" disabled>
-                                </div>
+                <div class="col-md-6">
+                    <input id="avg" type="text" class="form-control" name="avg" value="{{ $avg_feedback}}" required autocomplete="average" disabled>
+                </div>
             </div>
 			</br>
 			<table class="table table-striped table-hover">
@@ -154,6 +167,7 @@
 			  </tbody>
 			 </table>
 		</div>
+        @endif
     </div>
 
 </body>

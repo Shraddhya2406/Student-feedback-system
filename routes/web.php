@@ -55,6 +55,8 @@ Route::get('/questions', 'App\Http\Controllers\FeedbackController@FetchQuestions
 
 Route::get('/feedbacks', 'App\Http\Controllers\FeedbackController@FetchFeedback');
 
+Route::get('/get_feedbacks', 'App\Http\Controllers\FeedbackController@FetchFaculty');
+
 Route::get('/admin_account','App\Http\Controllers\AccountController@FetchAccount');
 
 Route::post('/admin_account','App\Http\Controllers\AccountController@SaveAccount');

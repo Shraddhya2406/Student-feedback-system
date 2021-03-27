@@ -72,8 +72,10 @@
 				<li class="active"><a href="#">Home</a></li>
 				@if (session('user_type') == 'S')
 					<li><a href="/questions">Provide Feedback</a></li>
-				@else
+				@elseif (session('user_type') == 'F')
 					<li><a href="/feedbacks">Feedback Results</a></li>
+				@else
+					<li><a href="/get_feedbacks">Feedback Results</a></li>
 				@endif
 			  </ul>
 			  <ul class="nav navbar-nav navbar-right">
@@ -142,7 +144,11 @@
 			   <div class="panel panel-primary">
 				<div class="panel-heading">FEEDBACK RESULTS</div>
 				<div class="panel-body">
+				  @if (session('user_type') == 'F')
 					<a href="/feedbacks">
+				  @else
+				    <a href="/get_feedbacks">
+				  @endif
 						<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
 					</a>
 				</div>

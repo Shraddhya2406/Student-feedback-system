@@ -82,7 +82,7 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="/dashboard">Home</a></li>
-                    <li><a href="/feedbacks">Feedback Results</a></li>
+                    <li><a href="/get_feedbacks">Feedback Results</a></li>
                 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
