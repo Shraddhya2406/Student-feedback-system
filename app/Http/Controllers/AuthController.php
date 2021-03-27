@@ -35,9 +35,6 @@ public function registration(Request $request)
                     return redirect('signin')->with('status',"Registered successfully");
                 }
             
-            }else{
-                
-                return redirect('signin')->with('failed',"Something wrong! Try again later");
             }
         }
         elseif($request->input('user_type') == 'F'){
@@ -64,14 +61,9 @@ public function registration(Request $request)
                         return redirect('signin')->with('status',"Registered successfully");
                     }
                 
-                }else{
-                    
-                    return redirect('signin')->with('failed',"Something wrong! Try again later");
                 }
         }
-        else {
-            return redirect('signin')->with('failed',"Something wrong! Try again later");
-        }
+        return redirect('signin')->with('msg',"Something wrong! Please try again later");
     }
 
     public function signin(Request $request)
@@ -95,10 +87,6 @@ public function registration(Request $request)
                 
                 return redirect('dashboard')->with('status','Welcome to Student Feedback System');
             }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
-            }
 
         } 
         elseif($request->input('user_type') == 'F'){
@@ -116,10 +104,6 @@ public function registration(Request $request)
                 
                 return redirect('dashboard')->with('status','Welcome to Student Feedback System');
             }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
-            }
 
         }
         elseif($request->input('user_type') == 'A'){
@@ -136,14 +120,8 @@ public function registration(Request $request)
                 
                 return redirect('dashboard')->with('status','Welcome to Student Feedback System');
             }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
-            }
         }
-        else {
-            return redirect('signin')->with('msg','username or password are incorrect');
-        }
+        return redirect('signin')->with('msg','username or password are incorrect');
     }
 
     public function signout(Request $request)

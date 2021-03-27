@@ -37,7 +37,7 @@ public function SaveAccount(Request $request)
             return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
         }
         else {
-            return redirect('dashboard')->with('failed',"Something wrong! Try again later");
+            return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
         }
     }
 
@@ -45,59 +45,37 @@ public function SaveAccount(Request $request)
     {
         $email = session('email');
         $user_type = session('user_type');
-       
 
         if ($user_type == 'S'){
             $student = \DB::table('student')->where('email', $email)
                                             ->first();
-        
-
             if ($student)
             {           
-            
                 return view('account',['user' => $student]);
-            }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
             }
 
         }
         elseif ($user_type == 'F'){
             $faculty = \DB::table('faculty')->where('admin_email', $email)
                                             ->first();
-        
-
             if ($faculty)
             {           
-            
                 return view('account',['user' => $faculty]);
-            }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
             }
 
         }
         elseif ($user_type == 'A'){
             $admin = \DB::table('admin')->where('admin_email', $email)
                                             ->first();
-        
-
             if ($admin)
             {           
-            
                 return view('admin_account',['user' => $admin]);
-            }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
             }
 
         }
-        else {
-            return redirect('signin')->with('msg','username or password are incorrect');
-        }   
+        
+        $request->session()->flush();
+        return redirect('signin')->with('msg','Something went wrong. Please Login again'); 
     }
 
     public function EditUserByAdmin(Request $request)
@@ -124,7 +102,7 @@ public function SaveAccount(Request $request)
             return redirect('dashboard')->with('status_update',"Profile Details Updated successfully");
         }
         else {
-            return redirect('dashboard')->with('failed',"Something wrong! Try again later");
+            return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
         }
     }
 
@@ -139,38 +117,22 @@ public function SaveAccount(Request $request)
         if ($user_type == 'S'){
             $student = \DB::table('student')->where('email', $email)
                                             ->first();
-        
-
             if ($student)
-            {           
-            
+            {          
                 return view('account',['user' => $student]);
-            }
-            else
-            {
-                return redirect('signin')->with('msg','username or password is incorrect');
             }
 
         }
         elseif ($user_type == 'F'){
             $faculty = \DB::table('faculty')->where('admin_email', $email)
                                             ->first();
-        
-
             if ($faculty)
             {           
-            
                 return view('account',['user' => $faculty]);
-            }
-            else
-            {
-                return redirect('account');
             }
 
         }
-        else {
-            return redirect('signin')->with('msg','username or password are incorrect');
-        }
+        return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
     }
 
 }

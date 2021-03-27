@@ -76,7 +76,7 @@
                                 </button>
 
                                 @if(session('msg'))
-                                    {{ session('msg') }}
+                                    <p class="text-danger">{{ session('msg') }}</p>
                                 @endif
 
                                 @if (Route::has('password.request'))
