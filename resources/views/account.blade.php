@@ -84,8 +84,7 @@
                     <li><a href="/dashboard">Home</a></li>
                     @if (session('user_type') == 'S')
                         <li><a href="/questions">Provide Feedback</a></li>
-                    @endif
-                    @if (session('user_type') == 'F')
+                    @else
                         <li><a href="/feedbacks">Feedback Results</a></li>
                     @endif
                 </ul>
@@ -94,8 +93,13 @@
                         <a href="#"><img src="https://img.icons8.com/bubbles/25/000000/see-female-account.png"/>{{ session('name') }}</a>
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
-                                <li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
+                            @if (session('user_type') == 'A')
+                                <li> <a href="/admin_account" class="dropdown_item">Profile Details</a> </li>
                                 <li> <a href="/add_user" class="dropdown_item">Add Users</a> </li>
+                                <li> <a href="/edit_user" class="dropdown_item">Edit Users</a> </li>
+                            @else
+                                <li> <a href="/account" class="dropdown_item">Profile Details</a> </li>
+                            @endif
                                 <li> <a href="/signout" class="dropdown_item">Logout</a> </li>
                             </ul>
                         </div>
@@ -104,6 +108,7 @@
             </div>
         </div>
     </nav>
+    @if (session('user_type') == 'A')
     <form action="/edit_user" method="post">
         @csrf
             <div class="row">
@@ -122,6 +127,7 @@
                 </button>
             </div>
     </form>
+    @endif
    @if(isset($user)) 
     <div class="container">
         <div class="row justify-content-center">
@@ -133,8 +139,12 @@
                     </div>
                     </br>
                     <div class="card-body">
+                    @if (session('user_type') == 'A')
+                        <form method="PUT" action="/edit_user">
+                    @else
                         <form method="POST" action="/account">
-                            @csrf
+                    @endif
+                        @csrf
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
