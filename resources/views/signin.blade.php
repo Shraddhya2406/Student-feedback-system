@@ -68,17 +68,20 @@
                                 </div>
                             </div>
                         </div>
+                        @if(session('msg'))
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                    <span class="text-danger">{{ session('msg') }}</span>
+                            </div>
+                        </div>
+                        @endif
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if(session('msg'))
-                                    <p class="text-danger">{{ session('msg') }}</p>
-                                @endif
-
+                                
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}

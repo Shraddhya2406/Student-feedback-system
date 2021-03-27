@@ -257,6 +257,19 @@
                                 </div>
                             </div>
                         </form>
+
+                        @if (session('user_type') == 'A')
+                        <form method="POST" action="/delete_user">
+                        @csrf
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-danger">
+                                        {{ __('Delete') }}
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        @endif
                     </div>
                 </div>
             </div>

@@ -59,6 +59,8 @@ Route::get('/admin_account','App\Http\Controllers\AccountController@FetchAccount
 
 Route::post('/admin_account','App\Http\Controllers\AccountController@SaveAccount');
 
+Route::post('/delete_user','App\Http\Controllers\AccountController@DeleteUserByAdmin');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -135,4 +135,23 @@ public function SaveAccount(Request $request)
         return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
     }
 
+    public function DeleteUserByAdmin(Request $request)
+    {   
+        $email =  session('edit_email');
+        $user_type = session('edit_user_type');
+        $status = 'Y';
+        if ($user_type == 'S'){
+            \DB::update('update student set status = ? where email = ?',[$status,$email]);
+            return redirect('dashboard')->with('status_update',"User Deleted successfully");
+          
+        } 
+        elseif ($user_type == 'F'){
+            \DB::update('update faculty set status = ? where email = ?',[$status,$email]);
+            return redirect('dashboard')->with('status_update',"User Deleted successfully");
+        }
+        else {
+            return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
+        }
+    }
+
 }
