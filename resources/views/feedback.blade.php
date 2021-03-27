@@ -114,7 +114,7 @@
 
     <div class="container">
 		<div class="col-md-12"><h1>Feedbacks and Reviews</h1></div>
-        @if(session('user_type')=='A')
+        @if(session('user_type')=='A' && isset($faculty))
         <form action="/feedbacks" method="GET">
             @csrf
             <div class="form-group row">

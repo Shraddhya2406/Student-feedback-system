@@ -11,8 +11,8 @@ class FeedbackController extends Controller
     {   
         $status = 'N';
         $question = \DB::table('question')->get();
-        $faculty = \DB::table('faculty')->get()
-                                        ->where('status', $status);
+        $faculty = \DB::table('faculty')->where('status', $status)
+                                        ->get();
         
         return view('Questions', ['question' => $question,'faculty' => $faculty]);
     }
@@ -59,8 +59,8 @@ class FeedbackController extends Controller
     public function FetchFaculty(Request $request)
     {
         $status = 'N';
-        $faculty = \DB::table('faculty')->get()
-                                        ->where('status', $status);
+        $faculty = \DB::table('faculty')->where('status', $status)
+                                            ->get();
         return view('Feedback', ['faculty' => $faculty]);
     }
 

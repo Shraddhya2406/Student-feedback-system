@@ -56,7 +56,7 @@ public function SaveAccount(Request $request)
 
         }
         elseif ($user_type == 'F'){
-            $faculty = \DB::table('faculty')->where('admin_email', $email)
+            $faculty = \DB::table('faculty')->where('email', $email)
                                             ->first();
             if ($faculty)
             {           
