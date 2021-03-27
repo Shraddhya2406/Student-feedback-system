@@ -130,4 +130,26 @@ public function registration(Request $request)
         return redirect('/');
     }
 
+    public function ResetPassword(Request $request)
+    {   
+        $email =  $request->input('email');
+        $password =  $request->input('password');
+        $user_type =  $request->input('user_type');
+        if ($user_type == 'S'){
+            \DB::update('update student set password = ? where email = ?',[$password,$email]);
+            return redirect('signin')->with('status_update',"User Deleted successfully");
+          
+        } 
+        elseif ($user_type == 'F'){
+            \DB::update('update faculty set password = ? where email = ?',[$password,$email]);
+            return redirect('signin')->with('status_update',"User Deleted successfully");
+        }
+        elseif ($user_type == 'A'){
+            \DB::update('update admin set password = ? where admin_email = ?',[$password,$email]);
+            return redirect('signin')->with('status_update',"User Deleted successfully");
+        }
+        else{
+            return redirect('signin')->with('status_update',"Something wrong! Try again later");
+        }
+    }
 }

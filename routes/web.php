@@ -35,6 +35,8 @@ Route::get('/signout', 'App\Http\Controllers\AuthController@signout');
 
 Route::post('/signin','App\Http\Controllers\AuthController@signin');
 
+Route::put('/signin','App\Http\Controllers\AuthController@ResetPassword');
+
 Route::get('/dashboard','App\Http\Controllers\DashboardController@gotoDashboard');
 
 Route::get('/account','App\Http\Controllers\AccountController@FetchAccount');
@@ -62,6 +64,10 @@ Route::get('/admin_account','App\Http\Controllers\AccountController@FetchAccount
 Route::post('/admin_account','App\Http\Controllers\AccountController@SaveAccount');
 
 Route::post('/delete_user','App\Http\Controllers\AccountController@DeleteUserByAdmin');
+
+Route::get('/forgot_password', function(){
+    return view('forgot_password');
+});
 
 Auth::routes();
 
