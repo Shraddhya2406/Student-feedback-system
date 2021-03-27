@@ -140,7 +140,8 @@
                     </br>
                     <div class="card-body">
                     @if (session('user_type') == 'A')
-                        <form method="PUT" action="/edit_user">
+                        <form method="POST" action="/edit_user">
+                        {{ method_field('PUT') }}
                     @else
                         <form method="POST" action="/account">
                     @endif

@@ -97,13 +97,13 @@ public function SaveAccount(Request $request)
         }
         else {
             return redirect('signin')->with('msg','username or password are incorrect');
-        }
+        }   
     }
 
     public function EditUserByAdmin(Request $request)
     {   
-        $email =  $request->input('search');
-        $user_type = $request->input('user_type');
+        $email =  session('edit_email');
+        $user_type = session('edit_user_type');
         if ($user_type == 'S'){
             $dob = $request->input('dob');
             $gender = $request->input('gender');
@@ -132,7 +132,9 @@ public function SaveAccount(Request $request)
     {
         $email = $request->input('search');
         $user_type = $request->input('user_type');
-       
+
+        session(['edit_email' => $email]);
+        session(['edit_user_type' => $user_type]);
 
         if ($user_type == 'S'){
             $student = \DB::table('student')->where('email', $email)
