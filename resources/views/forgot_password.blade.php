@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="/signin">
-                         @method('PUT')
+                        @method('PUT')
                         @csrf
 
                         <div class="form-group row">

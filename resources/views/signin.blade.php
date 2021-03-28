@@ -4,6 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if(session('status'))
+            <div class="card">
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-4">
+                            <span class="text-dark">{{ session('status') }}</span>
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
