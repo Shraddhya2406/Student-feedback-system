@@ -64,4 +64,20 @@ class FeedbackController extends Controller
         return view('Feedback', ['faculty' => $faculty]);
     }
 
+    public function AddQuestions(Request $request)
+    {
+       $question = new Question ;
+       $question->ques_description = $request->input('question');
+       
+        if($question->save())
+        {
+            return redirect('add_question')->with('status','Question Added Sucessfully');
+        }
+        else
+        {
+            return redirect('add_question')->with('status','Something went wrong, Please Try Again!');
+        }
+
+    }
+
 }

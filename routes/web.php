@@ -69,6 +69,12 @@ Route::get('/forgot_password', function(){
     return view('forgot_password');
 });
 
+Route::get('/add_question', function () {
+    return view('add_question');
+});
+
+Route::post('/add_question','App\Http\Controllers\FeedbackController@AddQuestions');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
