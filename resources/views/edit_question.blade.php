@@ -120,15 +120,16 @@
                         <h2>{{ __('Edit Questions') }}</h2>
                     </div>
                     </br>
+                @foreach($question as $question)
                     <div class="card-body">
                         <form method="POST" action="/edit_question">
                             @csrf
 
                             <div class="form-group row">
-                                <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Question') }}</label>
+                                <input type="hidden" name="id" value="{{$question->id}}">
 
-                                <div class="col-md-6">
-                                    <textarea id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question"  required autocomplete="question" ></textarea>
+                                <div class="col-md-8">
+                                    <textarea id="question" type="text" class="form-control @error('question') is-invalid @enderror" name="question"  required autocomplete="question" >{{$question->ques_description}}</textarea>
 
                                     @error('question')
                                         <span class="invalid-feedback" role="alert">
@@ -136,18 +137,14 @@
                                         </span>
                                     @enderror
                                 </div>
+                                <button type="submit" class="btn btn-primary">
+                                        {{ __('Save') }}
+                                </button>
                             </div>
 
-                            
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Save') }}
-                                    </button>
-                                </div>
-                            </div>
                         </form>
                     </div>
+                @endforeach
                 </div>
             </div>
         </div>

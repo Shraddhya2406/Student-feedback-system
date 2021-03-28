@@ -77,6 +77,7 @@
 				@else
 					<li><a href="/get_feedbacks">Feedback Results</a></li>
 					<li><a href="/add_question">Add Questions</a></li>
+					<li><a href="/edit_question">Edit Questions</a></li>
 				@endif
 			  </ul>
 			  <ul class="nav navbar-nav navbar-right">

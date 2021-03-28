@@ -13,7 +13,10 @@ class FeedbackController extends Controller
         $question = \DB::table('question')->get();
         $faculty = \DB::table('faculty')->where('status', $status)
                                         ->get();
-        
+        if(session('user_type')=='A')
+        {
+            return view('edit_question', ['question' => $question]);
+        }
         return view('Questions', ['question' => $question,'faculty' => $faculty]);
     }
 
@@ -78,6 +81,14 @@ class FeedbackController extends Controller
             return redirect('add_question')->with('status','Something went wrong, Please Try Again!');
         }
 
+    }
+
+    public function EditQuestions(Request $request)
+    {
+        $id = $request->input('id');
+        $ques_description = $request->input('question');
+        \DB::update('update question set ques_description = ? where id = ?',[$ques_description,$id]);
+        return redirect('edit_question')->with('status','Question Updated Sucessfully');
     }
 
 }

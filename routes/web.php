@@ -75,6 +75,10 @@ Route::get('/add_question', function () {
 
 Route::post('/add_question','App\Http\Controllers\FeedbackController@AddQuestions');
 
+Route::get('/edit_question', 'App\Http\Controllers\FeedbackController@FetchQuestions');
+
+Route::post('/edit_question','App\Http\Controllers\FeedbackController@EditQuestions');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
