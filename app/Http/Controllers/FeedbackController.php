@@ -23,7 +23,7 @@ class FeedbackController extends Controller
     public function GiveFeedback(Request $request)
     {
         $qid = 1;
-        for($qid = 1 ; $qid<=5 ; $qid++)
+        for($qid = 1 ; $qid<=6 ; $qid++)
         {
             $range = 'range' . strval($qid);
             $comment = 'comment' . strval($qid);
@@ -56,7 +56,7 @@ class FeedbackController extends Controller
     
         $avg_feedback = \DB::table('feedback')->where('faculty_id',$faculty_id)
                                               ->avg('feedback.feedback_marks');
-        return view('Feedback', ['feedback' => $feedback,'avg_feedback' => $avg_feedback]);
+        return view('Feedback', ['feedback' => $feedback,'avg_feedback' => round($avg_feedback,2)]);
     }
 
     public function FetchFaculty(Request $request)
@@ -86,7 +86,7 @@ class FeedbackController extends Controller
     public function EditQuestions(Request $request)
     {
         $id = $request->input('id');
-        $ques_description = $request->input('question');
+        $ques_description = $request->input('question'); 
         \DB::update('update question set ques_description = ? where id = ?',[$ques_description,$id]);
         return redirect('edit_question')->with('status','Question Updated Sucessfully');
     }
