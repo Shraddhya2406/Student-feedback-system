@@ -54,6 +54,7 @@
         color: black;
     }
     </style>
+    <title>Dashboard</title>
 </head>
 
 <body>

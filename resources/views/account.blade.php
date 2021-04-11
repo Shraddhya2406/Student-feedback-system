@@ -63,6 +63,7 @@
         color: black;
     }
     </style>
+    <title>Profile Details</title>
 </head>
 
 <body>

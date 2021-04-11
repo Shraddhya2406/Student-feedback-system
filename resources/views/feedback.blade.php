@@ -63,6 +63,7 @@
         background-color: coral;
     }
     </style>
+    <title>Feedbacks</title>
 </head>
 
 <body>

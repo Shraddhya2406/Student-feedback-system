@@ -44,7 +44,8 @@
     <div class="img-responsive d-flex align-items-center justify-content-around px-5 my-3 py-5">
         <img src="{{ asset('images/fd-5.jpg') }}" />
         <h2 class="text-info">
-            This is an <span class="text-success">One Stop Solution</span> to the professional to help and make decision
+            This is an <span class="text-success"><b>One Stop Solution</b></span> for professionals to help and make
+            decision
             to create hope
             for the future.
         </h2>
@@ -93,7 +94,7 @@
 
     <footer class="d-flex justify-content-around align-items-center py-3 bg-secondary">
         <div>
-            <span class="text-white">Online Student Feedback System</span>
+            <span class="text-white">&#169;&#174; Online Student Feedback System - 2021</span>
         </div>
         <div class="d-flex">
             <img src="https://img.icons8.com/bubbles/30/000000/facebook-new.png" />

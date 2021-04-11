@@ -63,6 +63,7 @@
         color: black;
     }
     </style>
+    <title>Questions</title>
 </head>
 
 <body>
