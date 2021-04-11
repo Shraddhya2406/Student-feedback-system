@@ -112,26 +112,21 @@
             </div>
         </div>
     </nav>
-    <!-- @if (session('user_type') == 'A')
-    <form action="/edit_user" method="post">
+    @if (session('user_type') == 'A' && isset($searching))
+    <form action="/all_users" method="GET">
         @csrf
-            <div class="form-group row">
-                <select class="form-control" name="user_type" required>
-                    <option value='S'>Student</option>
-                    <option value='F'>Faculty</option>
-                </select>
-                <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search Email') }}</label>
-
-                <div class="col-md-6">
-                    <input id="search" type="text" class="form-control @error('search') is-invalid @enderror" name="search" required autocomplete="search">
-
-                </div>
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Search') }}
-                </button>
-            </div>
+        <div class="form-group container" style="margin-top:20px">
+            <label for="user_type">Select User Type: </label>
+            <select class="custom-select"  style="margin-right:15px; width:100px" name="user_type" required>
+                <option value='S'>Student</option>
+                <option value='F'>Faculty</option>
+            </select>
+            <button type="submit" class="btn btn-primary">
+                {{ __('Search') }}
+            </button>
+        </div>
     </form>
-    @endif -->
+    @endif
     @if(isset($user))
     <div class="container">
         <div class="row justify-content-center">

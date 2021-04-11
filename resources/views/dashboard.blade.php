@@ -142,27 +142,58 @@
                     </div>
                     <div class="panel-footer">Select a faculty and give your feedback</div>
                 </div>
-                <div class="col-sm-4"></div>
             </div>
-            @else
+            @elseif (session('user_type') == 'F')
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">FEEDBACK RESULTS</div>
                     <div class="panel-body">
-                        @if (session('user_type') == 'F')
                         <a href="/feedbacks">
-                            @else
-                            <a href="/get_feedbacks">
-                                @endif
-                                <img src="{{ asset('images/fd-6.jpg') }}" class="img-responsive" style="width:100%"
-                                    alt="Image">
-                            </a>
+                            <img src="{{ asset('images/fd-6.jpg') }}" class="img-responsive" style="width:100%"
+                                alt="Image">
+                        </a>
                     </div>
                     <div class="panel-footer">Take a look at feedbacks and remarks</div>
                 </div>
-                <div class="col-sm-4"></div>
             </div>
+            @else
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">FEEDBACK RESULTS</div>
+                    <div class="panel-body">
+                        <a href="/get_feedbacks">
+                            <img src="{{ asset('images/fd-6.jpg') }}" class="img-responsive" style="width:100%"
+                                alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Take a look at feedbacks and remarks</div>
+                </div>
+            </div>
+            <!-- <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">ADD QUESTIONS</div>
+                    <div class="panel-body">
+                        <a href="/add_question">
+                            <img src="{{ asset('images/fd-6.jpg') }}" class="img-responsive" style="width:100%"
+                                alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Take a look at feedbacks and remarks</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">EDIT QUESTIONS</div>
+                    <div class="panel-body">
+                        <a href="/edit_question">
+                            <img src="{{ asset('images/fd-6.jpg') }}" class="img-responsive" style="width:100%"
+                                alt="Image">
+                        </a>
+                    </div>
+                    <div class="panel-footer">Take a look at feedbacks and remarks</div>
+                </div>
+            </div> -->
             @endif
         </div>
 </body>

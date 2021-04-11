@@ -44,8 +44,10 @@ Route::get('/account','App\Http\Controllers\AccountController@FetchAccount');
 Route::post('/account','App\Http\Controllers\AccountController@SaveAccount');
 
 Route::get('/edit_user', function () {
-    return view('account');
+    return view('account', ['searching'=>'yes']);
 });
+
+Route::get('/all_users','App\Http\Controllers\AccountController@FetchAllUsers');
 
 Route::post('/edit_user','App\Http\Controllers\AccountController@FetchUserByAdmin');
 
