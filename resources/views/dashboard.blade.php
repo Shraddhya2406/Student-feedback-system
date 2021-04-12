@@ -84,8 +84,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="dropdown">
-                        <a href="#"><img
-                                src="https://img.icons8.com/bubbles/25/000000/see-female-account.png" />{{ session('name') }}</a>
+                        <a href="#"><img src="https://img.icons8.com/bubbles/25/000000/test-account.png"/>{{ session('name') }}</a>
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
                                 @if (session('user_type') == 'A')
@@ -158,6 +157,7 @@
                 </div>
             </div>
             @else
+            <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">FEEDBACK RESULTS</div>

@@ -94,7 +94,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li id="dropdown">
                         <a href="#"><img
-                                src="https://img.icons8.com/bubbles/25/000000/see-female-account.png" />{{ session('name') }}</a>
+                                src="https://img.icons8.com/bubbles/25/000000/test-account.png" />{{ session('name') }}</a>
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
                                 @if (session('user_type') == 'A')
@@ -279,7 +279,7 @@
                                 </div>
                             </form>
 
-                            @if (session('user_type') == 'A')
+                            <!-- @if (session('user_type') == 'A')
                             <form method="POST" action="/delete_user">
                                 @csrf
                                 <div class="form-group row mb-0">
@@ -290,7 +290,7 @@
                                     </div>
                                 </div>
                             </form>
-                            @endif
+                            @endif -->
                     </div>
                 </div>
             </div>

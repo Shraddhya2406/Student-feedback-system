@@ -17,13 +17,15 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                             <div class="col-md-6">
-                                <select class="form-control @error('user_type') is-invalid @enderror" name="user_type"
-                                    required>
-                                    <option value='S'>Student</option>
-                                    <option value='F'>Faculty</option>
-                                    <option value='A'>Admin</option>
-                                </select>
-
+                                <div class="input-group mb-2 ">
+                                    <i class="fa fa-users icon"></i>
+                                    <select class="form-control @error('user_type') is-invalid @enderror"
+                                        name="user_type" required>
+                                        <option value='S'>Student</option>
+                                        <option value='F'>Faculty</option>
+                                        <option value='A'>Admin</option>
+                                    </select>
+                                </div>
                                 @error('user_type')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -36,10 +38,12 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ $email ?? old('email') }}" required autocomplete="email"
-                                    autofocus>
-
+                                <div class="input-group mb-2 ">
+                                    <i class="fa fa-envelope icon"></i>
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                                </div>
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -53,10 +57,12 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password"
-                                    required autocomplete="new-password">
-
+                                <div class="input-group mb-2 ">
+                                    <i class="fa fa-key icon"></i>
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="new-password">
+                                </div>
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -70,8 +76,11 @@
                                 class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control"
-                                    name="password_confirmation" required autocomplete="new-password">
+                                <div class="input-group mb-2 ">
+                                    <i class="fa fa-users icon"></i>
+                                    <input id="password-confirm" type="password" class="form-control"
+                                        name="password_confirmation" required autocomplete="new-password">
+                                </div>
                             </div>
                         </div>
 

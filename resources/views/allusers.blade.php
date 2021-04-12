@@ -92,7 +92,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li id="dropdown">
                         <a href="#"><img
-                                src="https://img.icons8.com/bubbles/25/000000/see-female-account.png" />{{ session('name') }}</a>
+                                src="https://img.icons8.com/bubbles/25/000000/test-account.png" />{{ session('name') }}</a>
                         <div class="all_items rounded_shape">
                             <ul class="all_items_list">
                                 @if (session('user_type') == 'A')
@@ -133,7 +133,8 @@
                         <th scope="col">Department</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Address</th>
-                        <th scope="col">Edit</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,6 +154,13 @@
                                 @csrf
                                 <input type="hidden" name="search" value="{{$user->email}}">
                                 <button class="btn btn-primary">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/delete_user" method="POST">
+                                @csrf
+                                <input type="hidden" name="search_delete" value="{{$user->email}}">
+                                <button class="btn btn-danger">Delete</button>
                             </form>
                         </td>
                     </tr>

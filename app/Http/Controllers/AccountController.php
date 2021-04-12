@@ -107,6 +107,7 @@ public function SaveAccount(Request $request)
     }
 
     public function FetchAllUsers(Request $request){
+        $status = 'N';
         if ($request->input('user_type') == null){
             $user_type = session('edit_user_type');
         } else {
@@ -115,7 +116,7 @@ public function SaveAccount(Request $request)
         session(['edit_user_type' => $user_type]);
 
         if ($user_type == 'S'){
-            $student = \DB::table('student')->get();
+            $student = \DB::table('student')->where('status', $status)->get();
             if ($student)
             {      
                 return view('allusers',['user' => $student]);
@@ -123,7 +124,7 @@ public function SaveAccount(Request $request)
 
         }
         elseif ($user_type == 'F'){
-            $faculty = \DB::table('faculty')->get();
+            $faculty = \DB::table('faculty')->where('status', $status)->get();
             if ($faculty)
             {           
                 return view('allusers',['user' => $faculty]);
@@ -167,20 +168,20 @@ public function SaveAccount(Request $request)
 
     public function DeleteUserByAdmin(Request $request)
     {   
-        $email =  session('edit_email');
+        $email =  $request->input('search_delete');
         $user_type = session('edit_user_type');
         $status = 'Y';
         if ($user_type == 'S'){
             \DB::update('update student set status = ? where email = ?',[$status,$email]);
-            return redirect('dashboard')->with('status_update',"User Deleted successfully");
+            return redirect('all_users')->with('status_update',"User Deleted successfully");
           
         } 
         elseif ($user_type == 'F'){
             \DB::update('update faculty set status = ? where email = ?',[$status,$email]);
-            return redirect('dashboard')->with('status_update',"User Deleted successfully");
+            return redirect('all_users')->with('status_update',"User Deleted successfully");
         }
         else {
-            return redirect('dashboard')->with('status_update',"Something wrong! Try again later");
+            return redirect('all_users')->with('status_update',"Something wrong! Try again later");
         }
     }
 
