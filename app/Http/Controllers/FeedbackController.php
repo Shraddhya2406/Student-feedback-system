@@ -23,7 +23,8 @@ class FeedbackController extends Controller
     public function GiveFeedback(Request $request)
     {
         $qid = 1;
-        for($qid = 1 ; $qid<=6 ; $qid++)
+        $max_count = \DB::table('question')->count();
+        for($qid = 1 ; $qid<=$max_count ; $qid++)
         {
             $range = 'range' . strval($qid);
             $comment = 'comment' . strval($qid);
@@ -38,7 +39,7 @@ class FeedbackController extends Controller
             $feedback->save();
             
         }
-        return redirect('dashboard');
+        return redirect('dashboard')->with('status_update','Feedback submited sucessfully');
     }
 
     public function FetchFeedback(Request $request)
